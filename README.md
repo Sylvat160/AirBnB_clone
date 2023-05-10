@@ -41,7 +41,7 @@ $
 ```
 But also in non-interactive mode: (like the Shell project(simple shell) in C)
 
-```
+```py
 $ echo "help" | ./console.py
 (hbnb)
 
