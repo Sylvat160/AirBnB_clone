@@ -5,14 +5,10 @@ Unittest for BaseModel class
 
 
 import unittest
-import sys
-import os
-
-
+import uuid
 
 from models.base_model import BaseModel
 from datetime import datetime
-import uuid
 
 
 class BaseModelTest(unittest.TestCase):
@@ -35,6 +31,5 @@ class BaseModelTest(unittest.TestCase):
         """
         base = BaseModel()
         base_str = base.__str__()
-        self.assertEqual(base_str,
-                         f"[{type(base).__name__}] \
-                         ({base.id}) {base.__dict__}")
+        test = f"[{type(base).__name__}] ({base.id}) {base.__dict__}"
+        self.assertEqual(base_str, test)
