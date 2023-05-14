@@ -34,7 +34,7 @@ class FileStorage:
         """Deserializes json file"""
         try:
             with open(FileStorage.__file_path, 'r') as f:
-                obj_dict = json.load(f.read)
+                obj_dict = json.loads(f.read())
                 from models.base_model import BaseModel
                 for key, value in obj_dict.items():
                     if value['__class__'] == 'BaseModel':
