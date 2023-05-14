@@ -39,7 +39,7 @@ class FileStorage:
                 from models.user import User
                 from models.state import State
                 from models.city import City
-                # from models.amenity import Amenity
+                from models.amenity import Amenity
                 from models.place import Place
                 from models.review import Review
                 for key, value in obj_dict.items():
@@ -47,5 +47,15 @@ class FileStorage:
                         FileStorage.__object[key] = BaseModel(**value)
                     elif value['__class__'] == 'User':
                         FileStorage.__object[key] = User(**value)
+                    elif value['__class__'] == 'State':
+                        FileStorage.__object[key] = State(**value)
+                    elif value['__class__'] == 'City':
+                        FileStorage.__object[key] = City(**value)
+                    elif value['__class__'] == 'Amenity':
+                        FileStorage.__object[key] = Amenity(**value)
+                    elif value['__class__'] == 'Place':
+                        FileStorage.__object[key] = Place(**value)
+                    elif value['__class__'] == 'Review':
+                        FileStorage.__object[key] = Review(**value)
         except FileNotFoundError:
             pass
