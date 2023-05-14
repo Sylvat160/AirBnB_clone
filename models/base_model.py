@@ -24,6 +24,8 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            from .__init__ import storage
+            storage.save()
 
     def __str__(self):
         """
@@ -36,8 +38,8 @@ class BaseModel:
         Save updates to an instance
         """
         self.__dict__.update({'updated_at': datetime.now()})
-        # from .__init__ import storage
-        # storage.save()
+        from .__init__ import storage
+        storage.save()
 
     def to_dict(self):
         """
