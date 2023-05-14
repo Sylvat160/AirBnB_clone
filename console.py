@@ -8,13 +8,20 @@ import cmd
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
     """Entry point of the command interpreter"""
 
     prompt = '(hbnb) '
-    classes = ["BaseModel", "User"]
+    classes = ["BaseModel", "User", "State", "City",
+               "Amenity", "Place", "Review"]
 
     def do_create(self, args):
         """Create a new instance of BaseModel"""
@@ -27,6 +34,16 @@ class HBNBCommand(cmd.Cmd):
                 new = BaseModel()
             elif args == "User":
                 new = User()
+            elif args == "State":
+                new = State()
+            elif args == "City":
+                new = City()
+            elif args == "Amenity":
+                new = Amenity()
+            elif args == "Place":
+                new = Place()
+            elif args == "Review":
+                new = Review()
             storage.new(new)
             storage.save()
             print(new.id)
