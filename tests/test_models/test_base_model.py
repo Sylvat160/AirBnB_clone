@@ -33,3 +33,12 @@ class BaseModelTest(unittest.TestCase):
         base_str = base.__str__()
         test = f"[{type(base).__name__}] ({base.id}) {base.__dict__}"
         self.assertEqual(base_str, test)
+
+    def test_save(self):
+        """
+        Testing save method
+        """
+        base = BaseModel()
+        base.save()
+        self.assertNotEqual(base.created_at, base.updated_at)
+

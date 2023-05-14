@@ -36,16 +36,16 @@ class BaseModel:
         Save updates to an instance
         """
         self.__dict__.update({'updated_at': datetime.now()})
-        from .__init__ import storage
-        storage.save()
+        # from .__init__ import storage
+        # storage.save()
 
     def to_dict(self):
         """
         Returns a dictionary representation of an instance
         """
-        disdict = dict(self.__dict__)
-        disdict.update({'__class__': type(self).__name__,
+        newdict = dict(self.__dict__)
+        newdict.update({'__class__': type(self).__name__,
                         'updated_at': self.updated_at.isoformat(),
                         'id': self.id,
                         'created_at': self.created_at.isoformat()})
-        return disdict
+        return newdict
