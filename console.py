@@ -7,13 +7,14 @@ Console for AirBnB clone project
 import cmd
 from models.base_model import BaseModel
 from models.__init__ import storage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     """Entry point of the command interpreter"""
 
     prompt = '(hbnb) '
-    classes = ["BaseModel"]
+    classes = ["BaseModel", "User"]
 
     def do_create(self, args):
         """Create a new instance of BaseModel"""
@@ -24,6 +25,8 @@ class HBNBCommand(cmd.Cmd):
         else:
             if args == "BaseModel":
                 new = BaseModel()
+            elif args == "User":
+                new = User()
             storage.new(new)
             storage.save()
             print(new.id)
